@@ -16,7 +16,9 @@ produtos.forEach(p => {
       <p>Cor: ${p.cor}</p>
       <p>Bateria: ${p.bateria}</p>
       <div class="preco">${p.preco}</div>
-      <a class="btn-whatsapp" href="https://wa.me/55479965444445?text=${msg}" target="_blank">Comprar via WhatsApp</a>
+      <a class="btn-whatsapp" href="https://wa.me/55479965444445?text=${msg}" target="_blank">
+        <i class="fab fa-whatsapp"></i> Comprar via WhatsApp
+      </a>
     </div>
   `;
 });
