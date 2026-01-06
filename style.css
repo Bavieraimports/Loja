@@ -63,6 +63,7 @@ body {
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: center;
 }
 
 .card h3 {
@@ -78,6 +79,22 @@ body {
   font-size: 18px;
   font-weight: bold;
   margin-top: 8px;
+}
+
+.card .btn-whatsapp {
+  margin-top: 10px;
+  display: inline-block;
+  background: #25d366;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.card .btn-whatsapp:hover {
+  background: #1ebe57;
 }
 
 .whatsapp-float {
