@@ -2,40 +2,60 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baviera Imports</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
 
-<header class="top">
+<header class="topo">
   <h1>Baviera Imports</h1>
   <p>iPhones Seminovos • Garantia de 90 dias<br>Entrega grátis em BC e região</p>
 </header>
 
-<section class="info-cards">
-  <div class="info-card">
-    📍 <strong>Localização</strong><br>Balneário Camboriú, SC
-  </div>
-  <div class="info-card">
-    🛡️ <strong>Garantia</strong><br>90 dias de cobertura
-  </div>
-  <div class="info-card">
-    📄 <strong>Procedência</strong><br>Com nota e CNPJ
-  </div>
+<section class="info">
+  📍 <b>Localização:</b> Balneário Camboriú - SC<br>
+  🛡️ <b>Garantia:</b> 90 dias<br>
+  🧾 <b>Procedência:</b> Nota fiscal e CNPJ
 </section>
 
-<main class="container">
-  <h2>Catálogo Disponível</h2>
-  <div id="lista"></div>
-</main>
+<h2>Catálogo Disponível</h2>
 
-<a id="btnWhatsapp" class="whatsapp" target="_blank">
-  <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-</a>
+<div class="catalogo">
+
+  <label class="card">
+    <input type="radio" name="produto"
+      data-modelo="iPhone 12 64GB"
+      data-preco="R$ 1.550">
+    <div class="conteudo">
+      <div class="linha">
+        <h3>iPhone 12 64GB</h3>
+        <span class="radio"></span>
+      </div>
+      <p>Cor: Preto</p>
+      <p>Bateria: 75%</p>
+      <strong>R$ 1.550</strong>
+    </div>
+  </label>
+
+  <label class="card">
+    <input type="radio" name="produto"
+      data-modelo="iPhone 13 128GB"
+      data-preco="R$ 2.299">
+    <div class="conteudo">
+      <div class="linha">
+        <h3>iPhone 13 128GB</h3>
+        <span class="radio"></span>
+      </div>
+      <p>Cor: Preto</p>
+      <p>Bateria: 85%</p>
+      <strong>R$ 2.299</strong>
+    </div>
+  </label>
+
+</div>
+
+<button id="btnWhats" disabled>Finalizar no WhatsApp</button>
 
 <script src="script.js"></script>
 </body>
