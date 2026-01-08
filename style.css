@@ -4,6 +4,36 @@ body {
   background: #f2f2f2;
 }
 
+.topo {
+  background: linear-gradient(#111, #000);
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+}
+
+.infos {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+}
+
+.info {
+  background: #fff;
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.info span {
+  display: block;
+  color: #555;
+}
+
+h2 {
+  padding: 0 15px;
+}
+
 .catalogo {
   padding: 15px;
   display: flex;
@@ -14,51 +44,71 @@ body {
 .card {
   background: #fff;
   border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
   border: 2px solid #ddd;
+  box-shadow: 0 6px 0 #ddd;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.15s;
+}
+
+.card:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #aaa;
 }
 
 .card.selecionado {
-  border: 2px solid #000;
+  border-color: #000;
+  box-shadow: 0 6px 0 #000;
 }
 
-.card input {
-  display: none;
-}
-
-.conteudo {
-  padding: 15px;
-}
-
-.linha {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.radio {
-  width: 18px;
-  height: 18px;
-  border: 2px solid #999;
+.check {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
+  border: 2px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: transparent;
 }
 
-.card.selecionado .radio {
+.card.selecionado .check {
   background: #000;
+  color: #fff;
   border-color: #000;
 }
 
-#btnWhats {
-  margin: 20px;
-  padding: 15px;
+.texto {
+  flex: 1;
+}
+
+.texto h3 {
+  margin: 0;
+}
+
+.texto small {
+  display: block;
+  color: #666;
+}
+
+.preco {
+  font-weight: bold;
   font-size: 16px;
+}
+
+#whats {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
   background: #25d366;
   color: #fff;
   border: none;
-  border-radius: 12px;
-}
-
-#btnWhats:disabled {
-  background: #aaa;
+  border-radius: 30px;
+  padding: 16px;
+  font-size: 16px;
 }
