@@ -45,12 +45,6 @@ body {
   color: #555;
 }
 
-/* Ícones nas infos */
-.info i {
-  margin-right: 6px;
-  color: #0077cc; /* cor viva para destacar */
-}
-
 /* TITULO */
 h2 {
   padding: 0 15px;
@@ -100,7 +94,7 @@ h2 {
   box-shadow: 0 6px 0 #000;
 }
 
-/* CHECK */
+/* CHECK - bolinha de seleção com número */
 .check {
   width: 26px;
   height: 26px;
@@ -111,6 +105,8 @@ h2 {
   justify-content: center;
   font-weight: bold;
   color: transparent;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .card.selecionado .check {
