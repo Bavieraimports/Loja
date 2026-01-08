@@ -13,49 +13,39 @@
   <p>iPhones Seminovos • Garantia de 90 dias<br>Entrega grátis em BC e região</p>
 </header>
 
-<section class="info">
-  📍 <b>Localização:</b> Balneário Camboriú - SC<br>
-  🛡️ <b>Garantia:</b> 90 dias<br>
-  🧾 <b>Procedência:</b> Nota fiscal e CNPJ
+<section class="infos">
+  <div class="info">📍<b>Localização</b><span>Balneário Camboriú, SC</span></div>
+  <div class="info">🛡️<b>Garantia</b><span>90 dias de cobertura</span></div>
+  <div class="info">🧾<b>Procedência</b><span>Com nota e CNPJ</span></div>
 </section>
 
 <h2>Catálogo Disponível</h2>
 
 <div class="catalogo">
 
-  <label class="card">
-    <input type="radio" name="produto"
-      data-modelo="iPhone 12 64GB"
-      data-preco="R$ 1.550">
-    <div class="conteudo">
-      <div class="linha">
-        <h3>iPhone 12 64GB</h3>
-        <span class="radio"></span>
-      </div>
-      <p>Cor: Preto</p>
-      <p>Bateria: 75%</p>
-      <strong>R$ 1.550</strong>
+  <div class="card" data-modelo="iPhone 12 64GB" data-preco="R$ 1.550">
+    <div class="check">✓</div>
+    <div class="texto">
+      <h3>iPhone 12</h3>
+      <small>64GB • Preto</small>
+      <small>Bateria 75%</small>
     </div>
-  </label>
+    <div class="preco">R$ 1.550</div>
+  </div>
 
-  <label class="card">
-    <input type="radio" name="produto"
-      data-modelo="iPhone 13 128GB"
-      data-preco="R$ 2.299">
-    <div class="conteudo">
-      <div class="linha">
-        <h3>iPhone 13 128GB</h3>
-        <span class="radio"></span>
-      </div>
-      <p>Cor: Preto</p>
-      <p>Bateria: 85%</p>
-      <strong>R$ 2.299</strong>
+  <div class="card" data-modelo="iPhone 13 128GB" data-preco="R$ 2.299">
+    <div class="check">✓</div>
+    <div class="texto">
+      <h3>iPhone 13</h3>
+      <small>128GB • Preto</small>
+      <small>Bateria 85%</small>
     </div>
-  </label>
+    <div class="preco">R$ 2.299</div>
+  </div>
 
 </div>
 
-<button id="btnWhats" disabled>Finalizar no WhatsApp</button>
+<button id="whats">Falar no WhatsApp</button>
 
 <script src="script.js"></script>
 </body>
