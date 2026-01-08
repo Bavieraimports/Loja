@@ -1,64 +1,52 @@
-const telefone = "5547996544445";
+const telefone = "5547999123456"; // número correto (Brasil)
 
 const cards = document.querySelectorAll(".card");
 const botao = document.getElementById("whats");
-const contador = document.getElementById("contador");
 
-let selecionados = [];
+let modeloSelecionado = "";
+let precoSelecionado = "";
+let numeroSelecionado = 0;
 
-// Atualiza contador
-function atualizarContador() {
-  const total = selecionados.length;
+cards.forEach((card, index) => {
+  card.addEventListener("pointerdown", (e) => {
+    e.preventDefault(); // evita clique fantasma no mobile
 
-  if (total === 0) {
-    contador.classList.remove("ativo");
-    contador.textContent = "0";
-    return;
-  }
+    const jaSelecionado = card.classList.contains("selecionado");
 
-  contador.textContent = total;
-  contador.classList.add("ativo");
-
-  contador.classList.remove("pulse");
-  void contador.offsetWidth;
-  contador.classList.add("pulse");
-}
-
-// Cards
-cards.forEach(card => {
-  card.addEventListener("pointerup", (e) => {
-    e.preventDefault();
-
-    const modelo = card.dataset.modelo;
-    const preco = card.dataset.preco;
-
+    // efeito de afundar
     card.classList.add("afundado");
     setTimeout(() => card.classList.remove("afundado"), 120);
 
-    if (card.classList.contains("selecionado")) {
-      card.classList.remove("selecionado");
-      selecionados = selecionados.filter(p => p.modelo !== modelo);
-    } else {
-      card.classList.add("selecionado");
-      selecionados.push({ modelo, preco });
-    }
+    // limpa seleção
+    cards.forEach(c => {
+      c.classList.remove("selecionado");
+      c.querySelector(".check").textContent = ""; // limpa número
+    });
 
-    atualizarContador();
+    if (jaSelecionado) {
+      // desmarca
+      modeloSelecionado = "";
+      precoSelecionado = "";
+      numeroSelecionado = 0;
+    } else {
+      // seleciona
+      card.classList.add("selecionado");
+      modeloSelecionado = card.dataset.modelo;
+      precoSelecionado = card.dataset.preco;
+      numeroSelecionado = index + 1;
+      card.querySelector(".check").textContent = numeroSelecionado; // mostra número
+    }
   });
 });
 
-// WhatsApp
+// botão WhatsApp
 botao.addEventListener("click", () => {
-  if (selecionados.length === 0) {
-    alert("Selecione pelo menos um iPhone");
+  if (!modeloSelecionado) {
+    alert("Selecione um modelo primeiro");
     return;
   }
 
-  const lista = selecionados
-    .map(p => `• ${p.modelo} - ${p.preco}`)
-    .join("\n");
-
-  const mensagem = `Olá! Tenho interesse nos seguintes iPhones:\n\n${lista}`;
+  const mensagem = `Olá! Tenho interesse no ${modeloSelecionado} pelo valor de ${precoSelecionado}.`;
   const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
 
   window.open(link, "_blank");
