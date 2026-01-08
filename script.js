@@ -3,46 +3,43 @@ const cards = document.querySelectorAll(".card");
 const botao = document.getElementById("whats");
 const contador = document.getElementById("contador");
 
-let modeloSelecionado = "";
-let precoSelecionado = "";
+let selecionados = new Set();
 
 cards.forEach(card => {
   card.addEventListener("pointerdown", (e) => {
-    e.preventDefault(); // evita clique fantasma no mobile
-
-    const jaSelecionado = card.classList.contains("selecionado");
+    e.preventDefault();
 
     // efeito de afundar
     card.classList.add("afundado");
     setTimeout(() => card.classList.remove("afundado"), 120);
 
-    // limpa seleção
-    cards.forEach(c => c.classList.remove("selecionado"));
-
-    if (jaSelecionado) {
-      modeloSelecionado = "";
-      precoSelecionado = "";
+    // alterna seleção
+    if (card.classList.contains("selecionado")) {
+      card.classList.remove("selecionado");
+      selecionados.delete(card);
     } else {
       card.classList.add("selecionado");
-      modeloSelecionado = card.dataset.modelo;
-      precoSelecionado = card.dataset.preco;
+      selecionados.add(card);
     }
 
-    // Atualiza contador do lado do WhatsApp
-    const totalSelecionados = document.querySelectorAll(".card.selecionado").length;
-    contador.textContent = totalSelecionados > 0 ? totalSelecionados : "";
+    // atualiza contador do lado do botão
+    contador.textContent = selecionados.size > 0 ? selecionados.size : "";
   });
 });
 
 // botão WhatsApp
 botao.addEventListener("click", () => {
-  if (!modeloSelecionado) {
-    alert("Selecione um modelo primeiro");
+  if (selecionados.size === 0) {
+    alert("Selecione pelo menos um modelo");
     return;
   }
 
-  const mensagem = `Olá! Tenho interesse no ${modeloSelecionado} pelo valor de ${precoSelecionado}.`;
-  const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+  // gera mensagem com todos os selecionados
+  let mensagem = "Olá! Tenho interesse nos seguintes modelos:\n";
+  selecionados.forEach(card => {
+    mensagem += `- ${card.dataset.modelo} pelo valor de ${card.dataset.preco}\n`;
+  });
 
+  const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
   window.open(link, "_blank");
 });
