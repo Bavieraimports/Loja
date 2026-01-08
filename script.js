@@ -25,10 +25,12 @@ function toggleCard(card) {
   contador.textContent = selecionados.size > 0 ? selecionados.size : "";
 }
 
-// Adiciona eventos compatíveis com PC, Android e iOS
+// Adiciona evento pointerdown (compatível PC, Android e iOS)
 cards.forEach(card => {
-  card.addEventListener("click", () => toggleCard(card));
-  card.addEventListener("touchstart", () => toggleCard(card));
+  card.addEventListener("pointerdown", (e) => {
+    e.preventDefault(); // evita clique fantasma no mobile
+    toggleCard(card);
+  });
 });
 
 // Evento do botão WhatsApp
@@ -57,6 +59,6 @@ window.addEventListener("load", () => {
   cards.forEach((card, index) => {
     setTimeout(() => {
       card.classList.add('mostrar');
-    }, index * 150); // efeito cascata, 150ms entre cada card
+    }, index * 150); // efeito cascata
   });
 });
