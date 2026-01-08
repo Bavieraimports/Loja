@@ -1,64 +1,32 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-}
+const telefone = "5547999123456"; // número certo
 
-.catalogo {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+const cards = document.querySelectorAll(".card");
+const radios = document.querySelectorAll('input[name="produto"]');
+const btn = document.getElementById("btnWhats");
 
-.card {
-  background: #fff;
-  border-radius: 14px;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  transition: 0.2s;
-}
+let modelo = "";
+let preco = "";
 
-.card.selecionado {
-  border: 2px solid #000;
-}
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    // limpa seleção
+    cards.forEach(c => c.classList.remove("selecionado"));
 
-.card input {
-  display: none;
-}
+    // marca atual
+    card.classList.add("selecionado");
 
-.conteudo {
-  padding: 15px;
-}
+    const radio = card.querySelector("input");
+    radio.checked = true;
 
-.linha {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    modelo = radio.dataset.modelo;
+    preco = radio.dataset.preco;
 
-.radio {
-  width: 18px;
-  height: 18px;
-  border: 2px solid #999;
-  border-radius: 50%;
-}
+    btn.disabled = false;
+  });
+});
 
-.card.selecionado .radio {
-  background: #000;
-  border-color: #000;
-}
-
-#btnWhats {
-  margin: 20px;
-  padding: 15px;
-  font-size: 16px;
-  background: #25d366;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-}
-
-#btnWhats:disabled {
-  background: #aaa;
-}
+btn.addEventListener("click", () => {
+  const msg = `Olá! Tenho interesse no ${modelo} pelo valor de ${preco}.`;
+  const link = `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`;
+  window.open(link, "_blank");
+});
