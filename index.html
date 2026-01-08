@@ -3,50 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baviera Imports</title>
+  <title>Catálogo iPhones</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="topo">
-  <h1>Baviera Imports</h1>
-  <p>iPhones Seminovos • Garantia de 90 dias<br>Entrega grátis em BC e região</p>
-</header>
+  <!-- LISTA DE IPHONES -->
+  <div class="lista">
 
-<section class="infos">
-  <div class="info">📍<b>Localização</b><span>Balneário Camboriú, SC</span></div>
-  <div class="info">🛡️<b>Garantia</b><span>90 dias de cobertura</span></div>
-  <div class="info">🧾<b>Procedência</b><span>Com nota e CNPJ</span></div>
-</section>
-
-<h2>Catálogo Disponível</h2>
-
-<div class="catalogo">
-
-  <div class="card" data-modelo="iPhone 12 64GB" data-preco="R$ 1.550">
-    <div class="check">✓</div>
-    <div class="texto">
-      <h3>iPhone 12</h3>
-      <small>64GB • Preto</small>
-      <small>Bateria 75%</small>
+    <div class="card" data-modelo="iPhone 11 64GB" data-preco="R$ 1.799">
+      <div class="info">
+        <div class="modelo">iPhone 11 64GB</div>
+        <div class="preco">R$ 1.799</div>
+      </div>
+      <div class="check">✓</div>
     </div>
-    <div class="preco">R$ 1.550</div>
+
+    <div class="card" data-modelo="iPhone 11 128GB" data-preco="R$ 1.999">
+      <div class="info">
+        <div class="modelo">iPhone 11 128GB</div>
+        <div class="preco">R$ 1.999</div>
+      </div>
+      <div class="check">✓</div>
+    </div>
+
+    <div class="card" data-modelo="iPhone 12 128GB" data-preco="R$ 2.499">
+      <div class="info">
+        <div class="modelo">iPhone 12 128GB</div>
+        <div class="preco">R$ 2.499</div>
+      </div>
+      <div class="check">✓</div>
+    </div>
+
+    <div class="card" data-modelo="iPhone 13 128GB" data-preco="R$ 3.099">
+      <div class="info">
+        <div class="modelo">iPhone 13 128GB</div>
+        <div class="preco">R$ 3.099</div>
+      </div>
+      <div class="check">✓</div>
+    </div>
+
   </div>
 
-  <div class="card" data-modelo="iPhone 13 128GB" data-preco="R$ 2.299">
-    <div class="check">✓</div>
-    <div class="texto">
-      <h3>iPhone 13</h3>
-      <small>128GB • Preto</small>
-      <small>Bateria 85%</small>
-    </div>
-    <div class="preco">R$ 2.299</div>
-  </div>
+  <!-- BOTÃO WHATSAPP -->
+  <button id="whats">
+    WhatsApp
+    <span id="contador">0</span>
+  </button>
 
-</div>
-
-<button id="whats">Falar no WhatsApp</button>
-
-<script src="script.js"></script>
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>
