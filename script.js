@@ -2,67 +2,44 @@ const telefone = "5547999123456"; // número correto
 
 const cards = document.querySelectorAll(".card");
 const botao = document.getElementById("whats");
-const contador = document.getElementById("contador");
 
-let selecionados = [];
+let modeloSelecionado = "";
+let precoSelecionado = "";
 
-// Atualiza contador
-function atualizarContador() {
-  const total = selecionados.length;
-
-  if (total === 0) {
-    contador.classList.remove("ativo");
-    contador.textContent = "0";
-    return;
-  }
-
-  contador.textContent = total;
-  contador.classList.add("ativo");
-
-  // animação
-  contador.classList.remove("pulse");
-  void contador.offsetWidth;
-  contador.classList.add("pulse");
-}
-
-// Cards
+// efeito + seleção
 cards.forEach(card => {
-  card.addEventListener("pointerdown", (e) => {
-    e.preventDefault();
 
-    const modelo = card.dataset.modelo;
-    const preco = card.dataset.preco;
-
-    // efeito afundar
+  // MOBILE: afundar
+  card.addEventListener("touchstart", () => {
     card.classList.add("afundado");
-    setTimeout(() => card.classList.remove("afundado"), 120);
+  }, { passive: true });
 
-    if (card.classList.contains("selecionado")) {
-      // desmarca
-      card.classList.remove("selecionado");
-      selecionados = selecionados.filter(p => p.modelo !== modelo);
-    } else {
-      // marca
-      card.classList.add("selecionado");
-      selecionados.push({ modelo, preco });
-    }
+  card.addEventListener("touchend", () => {
+    card.classList.remove("afundado");
+  });
 
-    atualizarContador();
+  card.addEventListener("touchcancel", () => {
+    card.classList.remove("afundado");
+  });
+
+  // seleção
+  card.addEventListener("click", () => {
+    cards.forEach(c => c.classList.remove("selecionado"));
+    card.classList.add("selecionado");
+
+    modeloSelecionado = card.dataset.modelo;
+    precoSelecionado = card.dataset.preco;
   });
 });
 
 // WhatsApp
 botao.addEventListener("click", () => {
-  if (selecionados.length === 0) {
-    alert("Selecione pelo menos um iPhone");
+  if (!modeloSelecionado) {
+    alert("Selecione um modelo primeiro");
     return;
   }
 
-  const lista = selecionados
-    .map(p => `• ${p.modelo} - ${p.preco}`)
-    .join("\n");
-
-  const mensagem = `Olá! Tenho interesse nos seguintes iPhones:\n\n${lista}`;
+  const mensagem = `Olá! Tenho interesse no ${modeloSelecionado} pelo valor de ${precoSelecionado}.`;
   const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
 
   window.open(link, "_blank");
