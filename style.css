@@ -10,34 +10,28 @@ body {
 
 /* ================= TOPO ================= */
 .topo {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(#111, #000);
   color: #fff;
   text-align: center;
-  padding: 32px 20px;
+  padding: 28px 20px;
 }
 
-/* 🔥 NOME DA LOJA – MAIS VIVO */
+/* Nome da loja – destaque leve */
 .topo h1 {
   margin: 0;
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: 0.6px;
-
-  background: linear-gradient(90deg, #ffffff, #e6f7ff, #ffffff);
-  background-size: 200% auto;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* TEXTO ABAIXO DO NOME */
+/* Texto abaixo do nome */
 .topo p {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 14px;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.75);
+  color: #ccc;
 }
 
 /* ================= INFOS ================= */
@@ -53,14 +47,13 @@ body {
   padding: 14px;
   border-radius: 14px;
   font-size: 13px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
 .info b {
   display: block;
   font-size: 13px;
   color: #111;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .info span {
@@ -71,7 +64,6 @@ body {
 /* ================= TITULO ================= */
 h2 {
   padding: 0 15px;
-  margin-bottom: 5px;
   color: #111;
 }
 
@@ -99,6 +91,7 @@ h2 {
   transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
 }
 
+/* Desktop */
 @media (hover: hover) {
   .card:active {
     transform: translateY(3px);
@@ -106,14 +99,16 @@ h2 {
   }
 }
 
+/* Mobile (via JS) */
 .card.afundado {
   transform: translateY(3px);
   box-shadow: 0 3px 0 #aaa;
 }
 
+/* ✅ Selecionado – EXATAMENTE como antes */
 .card.selecionado {
-  border-color: #111;
-  box-shadow: 0 6px 0 #111;
+  border-color: #000;
+  box-shadow: 0 6px 0 #000;
 }
 
 /* ================= CHECK ================= */
@@ -130,9 +125,9 @@ h2 {
 }
 
 .card.selecionado .check {
-  background: #111;
+  background: #000;
   color: #fff;
-  border-color: #111;
+  border-color: #000;
 }
 
 /* ================= TEXTO ================= */
