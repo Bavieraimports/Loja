@@ -1,64 +1,80 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baviera Imports</title>
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+const telefone = "5547999123456"; // número do WhatsApp
+const cards = Array.from(document.querySelectorAll(".card"));
+const botao = document.getElementById("whats");
+const contador = document.getElementById("contador");
+const catalogo = document.querySelector(".catalogo");
 
-<header class="topo">
-  <h1>Baviera Imports</h1>
-  <p>iPhones Seminovos • Garantia de 90 dias<br>Entrega grátis em BC e região</p>
-</header>
+// ================================
+// ORDENAÇÃO POR PREÇO (MENOR → MAIOR)
+// ================================
+cards
+  .sort((a, b) => {
+    const precoA = parseFloat(
+      a.dataset.preco.replace("R$", "").replace(".", "").replace(",", ".")
+    );
+    const precoB = parseFloat(
+      b.dataset.preco.replace("R$", "").replace(".", "").replace(",", ".")
+    );
+    return precoA - precoB;
+  })
+  .forEach(card => catalogo.appendChild(card));
 
-<section class="infos">
-  <div class="info">
-    <b>📍 Localização</b>
-    <span>Balneário Camboriú - SC</span>
-  </div>
-  <div class="info">
-    <b>🛡️ Garantia</b>
-    <span>90 dias</span>
-  </div>
-  <div class="info">
-    <b>🧾 Procedência</b>
-    <span>Nota fiscal e CNPJ</span>
-  </div>
-</section>
+// ================================
+// SELEÇÃO MÚLTIPLA
+// ================================
+let selecionados = new Set();
 
-<h2>Catálogo Disponível</h2>
+function toggleCard(card) {
+  card.classList.add("afundado");
+  setTimeout(() => card.classList.remove("afundado"), 120);
 
-<div class="catalogo">
+  if (card.classList.contains("selecionado")) {
+    card.classList.remove("selecionado");
+    selecionados.delete(card);
+  } else {
+    card.classList.add("selecionado");
+    selecionados.add(card);
+  }
 
-  <div class="card" data-modelo="iPhone 12 64GB" data-preco="R$ 1.550">
-    <div class="check">✓</div>
-    <div class="texto">
-      <h3>iPhone 12</h3>
-      <small>64GB • Preto</small>
-      <small>Bateria 75%</small>
-    </div>
-    <div class="preco">R$ 1.550</div>
-  </div>
+  contador.textContent = selecionados.size > 0 ? selecionados.size : "";
+}
 
-  <div class="card" data-modelo="iPhone 13 128GB" data-preco="R$ 2.299">
-    <div class="check">✓</div>
-    <div class="texto">
-      <h3>iPhone 13</h3>
-      <small>128GB • Preto</small>
-      <small>Bateria 85%</small>
-    </div>
-    <div class="preco">R$ 2.299</div>
-  </div>
+cards.forEach(card => {
+  card.addEventListener("pointerdown", e => {
+    e.preventDefault();
+    toggleCard(card);
+  });
+});
 
-</div>
+// ================================
+// BOTÃO WHATSAPP
+// ================================
+botao.addEventListener("click", () => {
+  if (selecionados.size === 0) {
+    alert("Selecione pelo menos um modelo");
+    return;
+  }
 
-<button id="whats">
-  Falar no WhatsApp <span id="contador" class="contador"></span>
-</button>
+  let mensagem = "Olá! Tenho interesse nos seguintes modelos:\n";
+  selecionados.forEach(card => {
+    mensagem += `- ${card.dataset.modelo} pelo valor de ${card.dataset.preco}\n`;
+  });
 
-<script src="script.js"></script>
-</body>
-</html>
+  const link = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+  window.open(link, "_blank");
+});
+
+// ================================
+// ANIMAÇÕES DE ENTRADA
+// ================================
+window.addEventListener("load", () => {
+  document.querySelector(".topo").classList.add("mostrar");
+  document.querySelector(".infos").classList.add("mostrar");
+  document.querySelector("h2").classList.add("mostrar");
+
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add("mostrar");
+    }, index * 120);
+  });
+});
