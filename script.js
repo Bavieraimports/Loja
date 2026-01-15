@@ -1,18 +1,33 @@
 const telefone = "5547999123456"; // número do WhatsApp
-const cards = document.querySelectorAll(".card");
+const cards = Array.from(document.querySelectorAll(".card"));
 const botao = document.getElementById("whats");
 const contador = document.getElementById("contador");
+const catalogo = document.querySelector(".catalogo");
 
-// Conjunto de cards selecionados
+// ================================
+// ORDENAÇÃO POR PREÇO (MENOR → MAIOR)
+// ================================
+cards
+  .sort((a, b) => {
+    const precoA = parseFloat(
+      a.dataset.preco.replace("R$", "").replace(".", "").replace(",", ".")
+    );
+    const precoB = parseFloat(
+      b.dataset.preco.replace("R$", "").replace(".", "").replace(",", ".")
+    );
+    return precoA - precoB;
+  })
+  .forEach(card => catalogo.appendChild(card));
+
+// ================================
+// SELEÇÃO MÚLTIPLA
+// ================================
 let selecionados = new Set();
 
-// Função que alterna a seleção de um card
 function toggleCard(card) {
-  // efeito de afundar
   card.classList.add("afundado");
   setTimeout(() => card.classList.remove("afundado"), 120);
 
-  // alterna seleção
   if (card.classList.contains("selecionado")) {
     card.classList.remove("selecionado");
     selecionados.delete(card);
@@ -21,26 +36,25 @@ function toggleCard(card) {
     selecionados.add(card);
   }
 
-  // atualiza contador do lado do botão
   contador.textContent = selecionados.size > 0 ? selecionados.size : "";
 }
 
-// Adiciona evento pointerdown (compatível PC, Android e iOS)
 cards.forEach(card => {
-  card.addEventListener("pointerdown", (e) => {
-    e.preventDefault(); // evita clique fantasma no mobile
+  card.addEventListener("pointerdown", e => {
+    e.preventDefault();
     toggleCard(card);
   });
 });
 
-// Evento do botão WhatsApp
+// ================================
+// BOTÃO WHATSAPP
+// ================================
 botao.addEventListener("click", () => {
   if (selecionados.size === 0) {
     alert("Selecione pelo menos um modelo");
     return;
   }
 
-  // Gera a mensagem com todos os selecionados
   let mensagem = "Olá! Tenho interesse nos seguintes modelos:\n";
   selecionados.forEach(card => {
     mensagem += `- ${card.dataset.modelo} pelo valor de ${card.dataset.preco}\n`;
@@ -50,15 +64,17 @@ botao.addEventListener("click", () => {
   window.open(link, "_blank");
 });
 
-// Animação de entrada ao carregar a página
+// ================================
+// ANIMAÇÕES DE ENTRADA
+// ================================
 window.addEventListener("load", () => {
-  document.querySelector('.topo').classList.add('mostrar');
-  document.querySelector('.infos').classList.add('mostrar');
-  document.querySelector('h2').classList.add('mostrar');
+  document.querySelector(".topo").classList.add("mostrar");
+  document.querySelector(".infos").classList.add("mostrar");
+  document.querySelector("h2").classList.add("mostrar");
 
   cards.forEach((card, index) => {
     setTimeout(() => {
-      card.classList.add('mostrar');
-    }, index * 150); // efeito cascata
+      card.classList.add("mostrar");
+    }, index * 120);
   });
 });
