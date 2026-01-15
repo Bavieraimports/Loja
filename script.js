@@ -1,4 +1,4 @@
-const telefone = "5547992184182";
+const telefone = "5547992181482";
 
 const cards = document.querySelectorAll(".card");
 const botao = document.getElementById("whats");
