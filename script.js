@@ -31,11 +31,22 @@ botao.addEventListener("click", () => {
 
   let msg = "Olá! Tenho interesse nos seguintes modelos:\n";
   selecionados.forEach(card => {
-    msg += `- ${card.dataset.modelo} por ${card.dataset.preco}\n`;
+    msg += - ${card.dataset.modelo} por ${card.dataset.preco}\n;
   });
 
   window.open(
-    `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`,
+    https://wa.me/${telefone}?text=${encodeURIComponent(msg)},
     "_blank"
   );
+});
+
+window.addEventListener("load", () => {
+  document.querySelector(".topo").classList.add("mostrar");
+  document.querySelector(".infos").classList.add("mostrar");
+  document.querySelector("h2").classList.add("mostrar");
+  document.querySelector(".prova-social").classList.add("mostrar");
+
+  cards.forEach((card, i) => {
+    setTimeout(() => card.classList.add("mostrar"), i * 150);
+  });
 });
