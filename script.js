@@ -31,11 +31,11 @@ botao.addEventListener("click", () => {
 
   let msg = "Olá! Tenho interesse nos seguintes modelos:\n";
   selecionados.forEach(card => {
-    msg += - ${card.dataset.modelo} por ${card.dataset.preco}\n;
+    msg += `- ${card.dataset.modelo} por ${card.dataset.preco}\n`;
   });
 
   window.open(
-    https://wa.me/${telefone}?text=${encodeURIComponent(msg)},
+    `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
 });
