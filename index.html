@@ -3,60 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baviera iPhones</title>
+  <title>Baviera Imports</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="topo">
-    <h1>Baviera iPhones</h1>
-    <p>iPhones selecionados • Qualidade garantida</p>
-  </header>
+<header class="topo">
+  <h1>Baviera Imports</h1>
+  <p>
+    iPhones Seminovos • Garantia de 90 dias<br>
+    Entrega em mãos em BC e região
+  </p>
+</header>
 
-  <section class="infos">
-    <p>✔ Aparelhos revisados</p>
-    <p>✔ Procedência garantida</p>
-    <p>✔ Atendimento direto no WhatsApp</p>
-  </section>
+<section class="infos">
+  <div class="info">
+    <b>📍 Localização</b>
+    <span>Balneário Camboriú - SC</span>
+  </div>
+  <div class="info">
+    <b>🛡️ Garantia</b>
+    <span>90 dias • aparelhos testados</span>
+  </div>
+  <div class="info">
+    <b>🧾 Procedência</b>
+    <span>CNPJ ativo • procedência garantida</span>
+  </div>
+</section>
 
-  <h2>Modelos disponíveis</h2>
+<section class="prova-social">
+  ⭐⭐⭐⭐⭐ Mais de <b>100 clientes satisfeitos</b> em BC e região
+</section>
 
-  <section class="catalogo">
-    <div class="card" data-modelo="iPhone 15 128GB Verde" data-preco="R$ 3.099,00">
+<h2>Catálogo Disponível</h2>
+
+<div class="catalogo">
+
+  <!-- iPhone 12 -->
+  <div class="card" data-modelo="iPhone 12 64GB Preto (75%)" data-preco="R$ 1.500">
+    <div class="check">✓</div>
+    <div class="texto">
+      <h3>iPhone 12</h3>
+      <small>64GB • Preto</small>
+      <small>Bateria 75%</small>
+    </div>
+    <div class="preco">R$ 1.500</div>
+  </div>
+
+  <!-- iPhone 13 85% -->
+  <div class="card" data-modelo="iPhone 13 128GB Preto (85%)" data-preco="R$ 2.299">
+    <div class="check">✓</div>
+    <div class="texto">
+      <h3>iPhone 13</h3>
+      <small>128GB • Preto</small>
+      <small>Bateria 85%</small>
+    </div>
+    <div class="preco">R$ 2.299</div>
+  </div>
+
+  <!-- iPhone 15 -->
+  <div class="card" data-modelo="iPhone 15 128GB Verde (83%)" data-preco="R$ 3.099">
+    <div class="check">✓</div>
+    <div class="texto">
       <h3>iPhone 15</h3>
-      <p>128GB • Verde</p>
-      <p>Bateria: 83%</p>
-      <strong>R$ 3.099,00</strong>
+      <small>128GB • Verde</small>
+      <small>Bateria 83%</small>
     </div>
-  </section>
+    <div class="preco">R$ 3.099</div>
+  </div>
 
-  <!-- FEEDBACKS -->
-  <section class="feedbacks">
-    <h2>O que nossos clientes dizem</h2>
+</div>
 
-    <div class="feedback-lista">
-      <div class="feedback-card">
-        <img src="feedbacks/feedback1.jpg" alt="Feedback cliente">
-      </div>
-      <div class="feedback-card">
-        <img src="feedbacks/feedback2.jpg" alt="Feedback cliente">
-      </div>
-      <div class="feedback-card">
-        <img src="feedbacks/feedback3.jpg" alt="Feedback cliente">
-      </div>
-      <div class="feedback-card">
-        <img src="feedbacks/feedback4.jpg" alt="Feedback cliente">
-      </div>
-      <div class="feedback-card">
-        <img src="feedbacks/feedback5.jpg" alt="Feedback cliente">
-      </div>
-    </div>
-  </section>
+<button id="whats">
+  Falar no WhatsApp <span id="contador" class="contador"></span>
+</button>
 
-  <button id="whats">
-    Falar no WhatsApp <span id="contador"></span>
-  </button>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
