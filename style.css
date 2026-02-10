@@ -1,178 +1,126 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
+  background: #f4f4f6;
+  color: #111;
+  padding-bottom: 100px;
 }
 
-/* TOPO */
 .topo {
-  background: linear-gradient(#111, #000);
-  color: #fff;
   text-align: center;
-  padding: 25px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  padding: 25px 15px;
 }
 
-.topo.mostrar {
-  opacity: 1;
-  transform: translateY(0);
+.topo h1 {
+  font-size: 26px;
 }
 
 .topo p {
-  color: #ccc;
-  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
 }
 
-/* INFOS */
 .infos {
   display: flex;
-  gap: 10px;
+  justify-content: space-around;
   padding: 15px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.infos.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.info {
-  background: #fff;
-  flex: 1;
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-
-/* PROVA SOCIAL */
-.prova-social {
-  margin: 0 15px 10px;
-  padding: 10px 14px;
-  background: #fff;
-  border-radius: 12px;
   font-size: 14px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.prova-social.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* TITULO */
 h2 {
-  padding: 0 15px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-h2.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* CATÁLOGO */
-.catalogo {
   padding: 15px;
-  display: flex;
-  flex-direction: column;
+  font-size: 20px;
+}
+
+.catalogo {
+  padding: 10px 15px;
+  display: grid;
   gap: 15px;
 }
 
-/* CARD */
 .card {
   background: #fff;
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  border: 2px solid #ddd;
-  box-shadow: 0 6px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-  opacity: 0;
-  transform: translateY(20px);
+  transition: transform .2s, box-shadow .2s;
 }
 
-.card.mostrar {
-  opacity: 1;
-  transform: translateY(0);
+.card:hover {
+  transform: translateY(-3px);
 }
 
 .card.selecionado {
-  border-color: #000;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  outline: 3px solid #000;
 }
 
-.check {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #bbb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: transparent;
+.card h3 {
+  font-size: 18px;
 }
 
-.card.selecionado .check {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-
-.texto {
-  flex: 1;
-}
-
-.texto h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
-.texto small {
-  display: block;
-  font-size: 13px;
+.card p {
   color: #555;
+  margin: 4px 0;
 }
 
-.preco {
-  font-weight: bold;
-  white-space: nowrap;
+.card strong {
+  font-size: 18px;
+  display: block;
+  margin-top: 8px;
 }
 
-/* BOTÃO WHATS */
+/* FEEDBACKS */
+.feedbacks {
+  padding: 20px 15px;
+}
+
+.feedback-lista {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.feedback-lista::-webkit-scrollbar {
+  display: none;
+}
+
+.feedback-card {
+  min-width: 260px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.feedback-card img {
+  width: 100%;
+  border-radius: 14px;
+  display: block;
+}
+
+/* BOTÃO */
 #whats {
   position: fixed;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #25d366;
+  background: #000;
   color: #fff;
   border: none;
-  border-radius: 30px;
-  padding: 14px 20px;
+  padding: 16px 22px;
+  border-radius: 40px;
   font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.contador {
-  margin-left: 6px;
+#contador {
+  margin-left: 8px;
   font-weight: bold;
 }
