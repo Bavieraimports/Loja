@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f2f2f2;
+  padding-bottom: 120px; /* espaço para o botão fixo */
 }
 
 /* TOPO */
@@ -47,13 +48,9 @@ body {
   text-align: center;
   font-size: 14px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  opacity: 0;
-  transform: translateY(15px);
-  transition: 0.6s;
 }
-.prova-social.mostrar { opacity: 1; transform: translateY(0); }
 
-/* TÍTULO CATÁLOGO */
+/* TÍTULO */
 h2 {
   padding: 0 15px;
 }
@@ -78,10 +75,7 @@ h2 {
   box-shadow: 0 6px 8px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: 0.2s;
-  opacity: 0;
-  transform: translateY(20px);
 }
-.card.mostrar { opacity: 1; transform: translateY(0); }
 
 .card.selecionado {
   border-color: #000;
@@ -113,7 +107,7 @@ h2 {
 /* FEEDBACKS */
 .feedbacks {
   padding: 15px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .feedback-header {
@@ -134,15 +128,16 @@ h2 {
   margin-top: 5px;
 }
 
+/* container com espaço acima */
 .feedback-container {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding: 10px 0 20px 0;
 }
 
 .feedback-container img {
-  height: 180px;
+  height: 170px; /* menor */
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.12);
   flex-shrink: 0;
@@ -162,5 +157,7 @@ h2 {
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
 }
+
 .contador { margin-left: 6px; font-weight: bold; }
