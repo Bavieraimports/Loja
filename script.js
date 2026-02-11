@@ -41,17 +41,22 @@ botao.addEventListener("click", () => {
 });
 
 window.addEventListener("load", () => {
-  document.querySelector(".topo").classList.add("mostrar");
-  document.querySelector(".infos").classList.add("mostrar");
-  document.querySelector("h2").classList.add("mostrar");
-  document.querySelector(".prova-social").classList.add("mostrar");
+
+  document.querySelector(".topo")?.classList.add("mostrar");
+  document.querySelector(".infos")?.classList.add("mostrar");
+  document.querySelector(".prova-social")?.classList.add("mostrar");
+  document.querySelector(".titulo-catalogo")?.classList.add("mostrar");
 
   cards.forEach((card, i) => {
     setTimeout(() => card.classList.add("mostrar"), i * 150);
   });
 
-  const feedbacks = document.querySelector(".feedbacks");
-  if (feedbacks) {
-    setTimeout(() => feedbacks.classList.add("mostrar"), 300);
+  // 🔥 AGORA O FEEDBACK VAI APARECER
+  const feedbackSection = document.querySelector(".feedbacks");
+  if (feedbackSection) {
+    setTimeout(() => {
+      feedbackSection.classList.add("mostrar");
+    }, 300);
   }
+
 });
