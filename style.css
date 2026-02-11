@@ -53,14 +53,10 @@ body {
 }
 .prova-social.mostrar { opacity: 1; transform: translateY(0); }
 
-/* TÍTULO */
+/* TÍTULO CATÁLOGO */
 h2 {
   padding: 0 15px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s;
 }
-h2.mostrar { opacity: 1; transform: translateY(0); }
 
 /* CATÁLOGO */
 .catalogo {
@@ -116,32 +112,39 @@ h2.mostrar { opacity: 1; transform: translateY(0); }
 
 /* FEEDBACKS */
 .feedbacks {
-  padding: 20px 15px;
+  padding: 15px;
   margin-top: 20px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s;
 }
-.feedbacks.mostrar { opacity: 1; transform: translateY(0); }
 
-.feedbacks h2 {
+.feedback-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.feedback-titulo {
   font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+.feedback-sub {
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
 }
 
 .feedback-container {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
   padding-bottom: 10px;
 }
 
-/* 🔥 FOTOS BEM MENORES */
 .feedback-container img {
-  height: 140px;  /* aqui você controla */
+  height: 180px;
   border-radius: 12px;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
   flex-shrink: 0;
 }
 
