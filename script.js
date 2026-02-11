@@ -49,4 +49,9 @@ window.addEventListener("load", () => {
   cards.forEach((card, i) => {
     setTimeout(() => card.classList.add("mostrar"), i * 150);
   });
+
+  const feedbacks = document.querySelector(".feedbacks");
+  if (feedbacks) {
+    setTimeout(() => feedbacks.classList.add("mostrar"), 300);
+  }
 });
