@@ -2,17 +2,16 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #ffffff;
-  color: #111;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
 }
 
 /* TOPO */
 .topo {
-  background: #000;
+  background: linear-gradient(#111, #000);
   color: #fff;
   text-align: center;
-  padding: 40px 20px;
+  padding: 25px;
   opacity: 0;
   transform: translateY(20px);
   transition: 0.6s;
@@ -24,36 +23,46 @@ body {
 .infos {
   display: flex;
   gap: 10px;
-  padding: 25px 15px;
+  padding: 15px;
   opacity: 0;
   transform: translateY(20px);
   transition: 0.6s;
 }
+.infos.mostrar { opacity: 1; transform: translateY(0); }
 
 .info {
-  background: #f5f5f7;
+  background: #fff;
   flex: 1;
-  padding: 15px;
-  border-radius: 14px;
+  padding: 12px;
+  border-radius: 12px;
   font-size: 13px;
 }
 
 /* PROVA SOCIAL */
 .prova-social {
-  margin: 0 15px 20px;
-  padding: 12px;
-  background: #f5f5f7;
-  border-radius: 14px;
+  margin: 0 15px 10px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 12px;
   text-align: center;
   font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.6s;
 }
+.prova-social.mostrar { opacity: 1; transform: translateY(0); }
 
-/* CATÁLOGO */
+/* TÍTULO */
 h2 {
   padding: 0 15px;
-  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
 }
+h2.mostrar { opacity: 1; transform: translateY(0); }
 
+/* CATÁLOGO */
 .catalogo {
   padding: 15px;
   display: flex;
@@ -63,66 +72,92 @@ h2 {
 
 /* CARD */
 .card {
-  background: #f5f5f7;
-  border-radius: 18px;
-  padding: 18px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px;
   display: flex;
   gap: 15px;
   align-items: center;
+  border: 2px solid #ddd;
+  box-shadow: 0 6px 8px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
 }
+.card.mostrar { opacity: 1; transform: translateY(0); }
 
 .card.selecionado {
-  outline: 2px solid #000;
+  border-color: #000;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* FEEDBACKS APPLE STYLE */
+.check {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: transparent;
+}
+.card.selecionado .check {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.texto h3 { margin: 0; font-size: 16px; }
+.texto small { display: block; font-size: 13px; color: #555; }
+
+.preco { font-weight: bold; white-space: nowrap; }
+
+/* FEEDBACKS */
 .feedbacks {
-  padding: 80px 20px;
-  background: #ffffff;
+  padding: 20px 15px;
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
 }
+.feedbacks.mostrar { opacity: 1; transform: translateY(0); }
 
-.feedback-header {
+.feedbacks h2 {
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto 50px;
-}
-
-.feedback-title {
-  font-size: 34px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.feedback-subtitle {
-  font-size: 16px;
-  color: #6e6e73;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .feedback-container {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   overflow-x: auto;
   padding-bottom: 10px;
 }
 
+/* 🔥 FOTOS BEM MENORES */
 .feedback-container img {
-  height: 380px;
-  border-radius: 22px;
+  height: 140px;  /* aqui você controla */
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
   flex-shrink: 0;
 }
 
 /* BOTÃO WHATS */
 #whats {
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: #000;
+  background: #25d366;
   color: #fff;
   border: none;
-  border-radius: 40px;
-  padding: 16px 30px;
+  border-radius: 30px;
+  padding: 14px 20px;
   font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
 }
+.contador { margin-left: 6px; font-weight: bold; }
