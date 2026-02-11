@@ -17,10 +17,7 @@ function toggleCard(card) {
 }
 
 cards.forEach(card => {
-  card.addEventListener("pointerdown", e => {
-    e.preventDefault();
-    toggleCard(card);
-  });
+  card.addEventListener("click", () => toggleCard(card));
 });
 
 botao.addEventListener("click", () => {
@@ -38,14 +35,4 @@ botao.addEventListener("click", () => {
     `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`,
     "_blank"
   );
-});
-
-window.addEventListener("load", () => {
-  document.querySelector(".topo").classList.add("mostrar");
-  document.querySelector(".infos").classList.add("mostrar");
-  document.querySelector(".prova-social").classList.add("mostrar");
-
-  cards.forEach((card, i) => {
-    setTimeout(() => card.classList.add("mostrar"), i * 150);
-  });
 });
