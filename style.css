@@ -2,8 +2,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f5f5f7;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
 }
 
 /* TOPO */
@@ -34,20 +34,19 @@ body {
   background: #fff;
   flex: 1;
   padding: 12px;
-  border-radius: 14px;
+  border-radius: 12px;
   font-size: 13px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 /* PROVA SOCIAL */
 .prova-social {
   margin: 0 15px 10px;
-  padding: 12px;
+  padding: 10px;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   text-align: center;
   font-size: 14px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
   opacity: 0;
   transform: translateY(15px);
   transition: 0.6s;
@@ -57,89 +56,120 @@ body {
 /* TÍTULO */
 h2 {
   padding: 0 15px;
-  margin-top: 25px;
-  font-size: 26px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
 }
+h2.mostrar { opacity: 1; transform: translateY(0); }
 
 /* CATÁLOGO */
 .catalogo {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
 }
 
 /* CARD */
 .card {
   background: #fff;
-  border-radius: 20px;
+  border-radius: 18px;
   padding: 18px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
   align-items: center;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
 }
+
 .card:hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
+
+.card.mostrar { opacity: 1; transform: translateY(0); }
+
 .card.selecionado {
   border-color: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
+/* CHECK PREMIUM */
 .check {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 2px solid #bbb;
+  border: 1.5px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: transparent;
+  transition: 0.2s ease;
 }
+
 .card.selecionado .check {
   background: #000;
+  border-color: #000;
+  color: #fff;
+  transform: scale(1.05);
 }
 
-.texto h3 { margin: 0; font-size: 18px; }
-.texto small { display: block; font-size: 14px; color: #666; }
+.texto h3 { 
+  margin: 0; 
+  font-size: 17px; 
+}
 
-.preco { font-weight: bold; font-size: 18px; }
+.texto small { 
+  display: block; 
+  font-size: 13px; 
+  color: #666; 
+}
 
-/* FEEDBACKS PREMIUM */
+.preco { 
+  font-weight: 600; 
+  font-size: 17px;
+  white-space: nowrap; 
+}
+
+/* FEEDBACKS */
 .feedbacks {
-  padding: 30px 15px 120px; /* espaço pro botão */
-  margin-top: 10px;
+  padding: 25px 15px 90px;
+  margin-top: 20px;
   text-align: center;
 }
 
-.titulo-feedback {
-  font-size: 26px;
+.feedbacks h2 {
   margin-bottom: 5px;
 }
 
-.sub-feedback {
-  font-size: 15px;
+.feedback-sub {
+  font-size: 14px;
   color: #777;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .feedback-container {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   overflow-x: auto;
-  scroll-behavior: smooth;
   padding-bottom: 10px;
 }
 
 .feedback-container img {
-  height: 190px; /* MENOR */
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  height: 200px;
+  border-radius: 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
   flex-shrink: 0;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .feedback-container img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 /* BOTÃO WHATS */
@@ -152,9 +182,18 @@ h2 {
   color: #fff;
   border: none;
   border-radius: 40px;
-  padding: 15px 28px;
+  padding: 15px 24px;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: 0.2s ease;
 }
-.contador { margin-left: 6px; font-weight: bold; }
+
+#whats:hover {
+  transform: translateX(-50%) scale(1.03);
+}
+
+.contador { 
+  margin-left: 6px; 
+  font-weight: bold; 
+}
