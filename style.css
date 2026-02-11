@@ -53,7 +53,7 @@ body {
 }
 .prova-social.mostrar { opacity: 1; transform: translateY(0); }
 
-/* TÍTULO */
+/* TÍTULO CATÁLOGO */
 h2 {
   padding: 0 15px;
   opacity: 0;
@@ -94,69 +94,3 @@ h2.mostrar { opacity: 1; transform: translateY(0); }
 
 .check {
   width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 2px solid #bbb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: transparent;
-}
-.card.selecionado .check {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-
-.texto h3 { margin: 0; font-size: 16px; }
-.texto small { display: block; font-size: 13px; color: #555; }
-
-.preco { font-weight: bold; white-space: nowrap; }
-
-/* FEEDBACKS */
-.feedbacks {
-  padding: 20px 15px;
-  margin-top: 20px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.6s;
-}
-.feedbacks.mostrar { opacity: 1; transform: translateY(0); }
-
-.feedbacks h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.feedback-container {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.feedback-container img {
-  height: 200px;   /* 🔥 DIMINUIDO */
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-  flex-shrink: 0;
-}
-
-/* BOTÃO WHATS */
-#whats {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #25d366;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-}
-.contador { margin-left: 6px; font-weight: bold; }
