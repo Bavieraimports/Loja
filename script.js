@@ -49,3 +49,28 @@ window.addEventListener("load", () => {
     setTimeout(() => card.classList.add("mostrar"), i * 150);
   });
 });
+/* CARROSSEL AUTOMATICO */
+const feedbackContainer = document.querySelector(".feedback-container");
+
+let scrollAmount = 0;
+
+function autoScroll() {
+
+  scrollAmount += 1;
+
+  feedbackContainer.scrollTo({
+    left: scrollAmount,
+    behavior: "smooth"
+  });
+
+  /* VOLTA PRO COMEÇO */
+  if (
+    scrollAmount >=
+    feedbackContainer.scrollWidth - feedbackContainer.clientWidth
+  ) {
+    scrollAmount = 0;
+  }
+
+}
+
+setInterval(autoScroll, 40);
