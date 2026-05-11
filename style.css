@@ -14,16 +14,20 @@ body {
   color: #fff;
 }
 
-/* TOPO */
+/* TOPO HERO */
 .topo {
-  background: linear-gradient(180deg, #1a1a1a, #0b0b0b);
+  background:
+    radial-gradient(circle at top, rgba(37,211,102,0.12), transparent 40%),
+    linear-gradient(180deg, #1a1a1a, #0b0b0b);
   color: #fff;
   text-align: center;
-  padding: 40px 20px;
+  padding: 70px 20px 60px;
   opacity: 0;
   transform: translateY(20px);
   transition: 0.6s;
   border-bottom: 1px solid #222;
+  position: relative;
+  overflow: hidden;
 }
 
 .topo.mostrar {
@@ -31,18 +35,62 @@ body {
   transform: translateY(0);
 }
 
+/* LOGO */
 .topo h1 {
   margin: 0;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1;
 }
 
+/* TEXTO HERO */
 .topo p {
   color: #b5b5b5;
+  font-size: 16px;
+  margin-top: 18px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* BENEFICIOS */
+.hero-beneficios {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-beneficios span {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #2b2b2b;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #d8d8d8;
+  backdrop-filter: blur(10px);
+}
+
+/* BOTAO HERO */
+.hero-btn {
+  margin-top: 28px;
+  display: inline-block;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-weight: 700;
   font-size: 15px;
-  margin-top: 12px;
-  line-height: 1.5;
+  box-shadow: 0 10px 25px rgba(37,211,102,0.25);
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(37,211,102,0.35);
 }
 
 /* INFOS */
@@ -140,7 +188,6 @@ h2 {
   transform: translateY(0);
 }
 
-/* EFEITO PREMIUM */
 .card::before {
   content: "";
   position: absolute;
@@ -156,7 +203,6 @@ h2 {
   box-shadow: 0 16px 30px rgba(0,0,0,0.35);
 }
 
-/* CARD SELECIONADO */
 .card.selecionado {
   border-color: #25d366;
   box-shadow: 0 0 0 1px #25d366;
@@ -195,7 +241,6 @@ h2 {
   font-weight: 700;
 }
 
-/* SUBINFOS */
 .texto small {
   display: inline-block;
   font-size: 12px;
