@@ -192,10 +192,12 @@ h2 {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background: linear-gradient(90deg, #25d366, #1fa855);
+  left: 20px;
+  width: 80px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(37, 211, 102, 0.8);
+  box-shadow: 0 0 12px rgba(37,211,102,0.25);
 }
 
 .card:hover {
