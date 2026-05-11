@@ -412,3 +412,32 @@ h2 {
     margin: auto;
   }
 }
+/* FOOTER */
+.footer {
+  padding: 40px 20px 120px;
+  text-align: center;
+  border-top: 1px solid #1f1f1f;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.footer span {
+  display: block;
+  margin-top: 10px;
+  color: #6f6f6f;
+  font-size: 13px;
+}
+
+.footer small {
+  display: block;
+  margin-top: 20px;
+  color: #555;
+  font-size: 12px;
+}
