@@ -118,18 +118,20 @@ h2 {
 
 /* CARD */
 .card {
-  background: #181818;
-  border-radius: 18px;
-  padding: 18px;
+  background: linear-gradient(180deg, #1b1b1b, #131313);
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   gap: 16px;
-  align-items: center;
+  align-items: flex-start;
   border: 1px solid #2a2a2a;
   box-shadow: 0 10px 24px rgba(0,0,0,0.25);
   cursor: pointer;
   transition: 0.25s ease;
   opacity: 0;
   transform: translateY(20px);
+  position: relative;
+  overflow: hidden;
 }
 
 .card.mostrar {
@@ -137,10 +139,23 @@ h2 {
   transform: translateY(0);
 }
 
-.card:hover {
-  transform: translateY(-4px);
+/* EFEITO PREMIUM */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #25d366, #1fa855);
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.35);
+}
+
+/* CARD SELECIONADO */
 .card.selecionado {
   border-color: #25d366;
   box-shadow: 0 0 0 1px #25d366;
@@ -148,8 +163,8 @@ h2 {
 
 /* CHECK */
 .check {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2px solid #555;
   display: flex;
@@ -158,6 +173,7 @@ h2 {
   font-weight: bold;
   color: transparent;
   flex-shrink: 0;
+  transition: 0.25s;
 }
 
 .card.selecionado .check {
@@ -173,23 +189,32 @@ h2 {
 
 .texto h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #fff;
+  font-weight: 700;
 }
 
+/* SUBINFOS */
 .texto small {
-  display: block;
-  font-size: 13px;
-  color: #9d9d9d;
-  margin-top: 4px;
+  display: inline-block;
+  font-size: 12px;
+  color: #cfcfcf;
+  margin-top: 10px;
+  margin-right: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #202020;
+  border: 1px solid #313131;
 }
 
-/* PRECO */
+/* PREÇO */
 .preco {
-  font-weight: bold;
+  font-weight: 800;
   white-space: nowrap;
-  font-size: 18px;
+  font-size: 24px;
   color: #fff;
+  margin-left: auto;
+  align-self: center;
 }
 
 /* FEEDBACKS */
@@ -314,4 +339,5 @@ h2 {
     max-width: 1300px;
     margin: auto;
   }
+}
 }
