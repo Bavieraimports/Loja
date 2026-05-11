@@ -188,6 +188,7 @@ h2 {
   transform: translateY(0);
 }
 
+/* DETALHE PREMIUM */
 .card::before {
   content: "";
   position: absolute;
@@ -205,6 +206,7 @@ h2 {
   box-shadow: 0 16px 30px rgba(0,0,0,0.35);
 }
 
+/* CARD SELECIONADO */
 .card.selecionado {
   border-color: #25d366;
   box-shadow: 0 0 0 1px #25d366;
@@ -243,6 +245,7 @@ h2 {
   font-weight: 700;
 }
 
+/* SUBINFOS */
 .texto small {
   display: inline-block;
   font-size: 12px;
@@ -310,9 +313,9 @@ h2 {
 }
 
 .feedback-container img {
-  height: 220px;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  height: 150px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.30);
   flex-shrink: 0;
   transition: 0.3s;
 }
@@ -374,7 +377,7 @@ h2 {
   }
 
   .feedback-container img {
-    height: 280px;
+    height: 190px;
   }
 }
 
